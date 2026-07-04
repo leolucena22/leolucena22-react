@@ -1,0 +1,179 @@
+/* ═══════════════════════════════════════════
+   SERVICES PAGE
+   ═══════════════════════════════════════════ */
+
+.services-section {
+  position: relative;
+  z-index: 1;
+  padding: 1rem 5rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Service Card ── */
+.service-card {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--gradient-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-hero);
+  opacity: 0;
+  transition: opacity var(--duration-normal) ease;
+}
+
+.service-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0, 229, 255, 0.06);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Reverse layout */
+.service-card--reverse {
+  flex-direction: row-reverse;
+}
+
+/* ── Visual (Image) ── */
+.service-card__visual {
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.service-card__visual img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.service-card:hover .service-card__visual img {
+  transform: scale(1.03);
+}
+
+/* ── Content ── */
+.service-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.service-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.service-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.service-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding-top: 0.6rem;
+  transition: gap 0.3s ease;
+  width: fit-content;
+}
+
+.service-card__cta:hover {
+  gap: 0.8rem;
+}
+
+.service-card__cta span {
+  transition: transform 0.3s ease;
+}
+
+.service-card__cta:hover span {
+  transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .services-section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .service-card__visual {
+    width: 200px;
+  }
+}
+
+@media (max-width: 700px) {
+  .services-section {
+    padding: 1rem 1.5rem 3rem;
+  }
+
+  .services-list {
+    gap: 1.5rem;
+  }
+
+  .service-card,
+  .service-card--reverse {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .service-card__visual {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .service-card__title {
+    font-size: 1.2rem;
+  }
+
+  .service-card__desc {
+    font-size: 0.85rem;
+  }
+}
