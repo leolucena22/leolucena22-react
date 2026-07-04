@@ -1,0 +1,52 @@
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  border-color: var(--border-accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--accent-dim);
+}
+
+/* Compact variant for footer */
+.social-links--compact a {
+  width: 36px;
+  height: 36px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  .social-links {
+    justify-content: center;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .social-links--compact a {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+}
