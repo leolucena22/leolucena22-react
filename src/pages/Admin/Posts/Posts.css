@@ -1,0 +1,116 @@
+.admin-dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  min-height: calc(100vh - 100px);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.admin-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.admin-actions .button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.posts-table-container {
+  overflow-x: auto;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  -webkit-overflow-scrolling: touch;
+}
+
+.posts-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Garante que não quebre no mobile, forçando scroll */
+}
+
+.posts-table th,
+.posts-table td {
+  padding: var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.posts-table th {
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.posts-table tr:last-child td {
+  border-bottom: none;
+}
+
+.actions-cell {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.action-btn.edit {
+  color: var(--accent);
+}
+
+.action-btn.edit:hover {
+  background: rgba(94, 234, 212, 0.1);
+}
+
+.action-btn.delete {
+  color: #ff3b30;
+}
+
+.action-btn.delete:hover {
+  background: rgba(255, 59, 48, 0.1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-2xl);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .admin-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .posts-table th,
+  .posts-table td {
+    padding: 1rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}

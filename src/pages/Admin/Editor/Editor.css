@@ -1,0 +1,230 @@
+.editor-container {
+  max-width: 1600px;
+  width: 95%;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  min-height: calc(100vh - 100px);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.editor-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.editor-sidebar {
+  background: var(--bg-card);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.editor-sidebar .input-group textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  resize: vertical;
+}
+
+.editor-sidebar .input-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-group input {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.content-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-editor textarea {
+  flex-grow: 1;
+  min-height: 60vh;
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.content-editor textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.editor-main.split-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .editor-main.split-view {
+    grid-template-columns: 1fr;
+  }
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preview-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* Markdown Preview Styles */
+.markdown-preview {
+  background-color: var(--bg-card);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  min-height: 60vh;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-preview p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.markdown-preview li {
+  margin-bottom: 0.5em;
+}
+
+.markdown-preview img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  margin: 1em 0;
+}
+
+.markdown-preview pre {
+  background-color: var(--bg-deep);
+  padding: 1em;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.markdown-preview code {
+  background-color: var(--bg-deep);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+.markdown-preview pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .editor-container {
+    padding: var(--space-md) var(--space-sm);
+  }
+  
+  .editor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .editor-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .editor-actions button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .editor-layout {
+    gap: var(--space-md);
+  }
+
+  .markdown-preview {
+    padding: var(--space-md);
+  }
+}
