@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { SocialLinks } from '../../components/SocialLinks/SocialLinks';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useSettings } from '../../contexts/SettingsContext';
 import { SEO } from '../../components/SEO/SEO';
 import './Home.css';
 
 export function Home() {
   const skillsRef = useScrollReveal();
   const profileRef = useRef(null);
+  const { settings, loadingSettings } = useSettings();
 
   // Tilt effect on profile image (desktop only)
   useEffect(() => {
@@ -38,9 +40,15 @@ export function Home() {
     };
   }, []);
 
+  if (loadingSettings) {
+    return <div className="loading-screen" style={{minHeight: '100vh'}} />
+  }
+
+  const { hero } = settings;
+
   return (
     <>
-      <SEO />
+      <SEO title={hero.title} />
       {/* Hero Section */}
       <section id="about" className="hero">
         <div className="hero__content">
@@ -48,24 +56,14 @@ export function Home() {
             Disponível para projetos
           </div>
 
-          <h1 className="hero__name">Leonardo Lucena</h1>
-          <h2 className="hero__title">Full Stack Developer</h2>
+          <h1 className="hero__name">{hero.name}</h1>
+          <h2 className="hero__title">{hero.title}</h2>
 
-          <p>
-            Desenvolvedor Full Stack apaixonado por tecnologia e educação. Com formação técnica em
-            Redes de Computadores e cursando Bacharelado em Sistemas de Informação no IFCE,
-            atuo com desenvolvimento web utilizando HTML, CSS, JavaScript, TypeScript e React,
-            além de trabalhar com WordPress, Go e Python.
-          </p>
+          {hero.paragraphs?.map((p, idx) => (
+            <p key={idx}>{p}</p>
+          ))}
 
-          <p>
-            No campo profissional, presto suporte de T.I para o Instituto Multiprofissional de Ensino (IME),
-            SOBREC e Editora Integrar, com foco em gestão de sistemas OJS e manutenção de plataformas.
-            Também organizo congressos e seminários acadêmicos e faço parte da equipe da VASP Empreendimentos,
-            onde aplico soluções tecnológicas inovadoras.
-          </p>
-
-          <a href="mailto:leolucena22@vivaldi.net" target="_blank" rel="noopener noreferrer" className="button">
+          <a href={`mailto:${hero.email}`} target="_blank" rel="noopener noreferrer" className="button">
             Entre em contato
           </a>
 
@@ -73,7 +71,7 @@ export function Home() {
         </div>
 
         <div className="hero__image" ref={profileRef}>
-          <img src="/assets/Perfil - editada.png" alt="Foto de Leonardo Lucena" />
+          <img src={hero.profileImage} alt={`Foto de ${hero.name}`} />
         </div>
       </section>
 

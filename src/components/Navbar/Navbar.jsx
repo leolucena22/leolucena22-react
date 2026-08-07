@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useSettings } from '../../contexts/SettingsContext';
 import './Navbar.css';
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { settings } = useSettings();
+  const listBase = settings?.permalinks?.listBase || '/blog';
 
   useEffect(() => {
     function handleScroll() {
@@ -48,6 +51,11 @@ export function Navbar() {
             <li>
               <NavLink to="/servicos" onClick={closeMenu}>
                 Serviços
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={listBase} onClick={closeMenu}>
+                Blog
               </NavLink>
             </li>
           </ul>
