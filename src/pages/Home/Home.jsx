@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { SocialLinks } from '../../components/SocialLinks/SocialLinks';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { SEO } from '../../components/SEO/SEO';
 import './Home.css';
 
 export function Home() {
@@ -39,6 +40,7 @@ export function Home() {
 
   return (
     <>
+      <SEO />
       {/* Hero Section */}
       <section id="about" className="hero">
         <div className="hero__content">

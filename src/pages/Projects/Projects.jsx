@@ -1,5 +1,6 @@
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { SEO } from '../../components/SEO/SEO';
 import './Projects.css';
 
 const projectsData = [
@@ -80,6 +81,11 @@ export function Projects() {
 
   return (
     <>
+      <SEO 
+        title="Projetos"
+        description="Ferramentas e aplicações web que desenvolvi para resolver problemas reais."
+        url="/projetos"
+      />
       <PageHeader
         label="Portfólio"
         title="Projetos"

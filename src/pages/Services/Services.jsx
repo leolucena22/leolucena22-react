@@ -1,5 +1,6 @@
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { SEO } from '../../components/SEO/SEO';
 import './Services.css';
 
 const servicesData = [
@@ -61,6 +62,11 @@ export function Services() {
 
   return (
     <>
+      <SEO 
+        title="Serviços"
+        description="Soluções profissionais para seu computador e dispositivos móveis. Desenvolvimento web, formatação, instalação de programas e mais."
+        url="/servicos"
+      />
       <PageHeader
         label="Suporte técnico"
         title="Serviços"
